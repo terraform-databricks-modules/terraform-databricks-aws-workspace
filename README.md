@@ -57,5 +57,5 @@
 
 | Name | Description |
 |------|-------------|
-| <a name="output_databricks_host"></a> [databricks\_host](#output\_databricks\_host) | n/a |
+| <a name="output_databricks_host"></a> [databricks\_host](#output\_databricks\_host) | The URL of the Databricks workspace |
 <!-- END_TF_DOCS -->
