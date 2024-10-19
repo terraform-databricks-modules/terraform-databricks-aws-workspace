@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.3.1 - 2024-10-19
+#### Bug Fixes
+- Fix GitHub workflow - (2310f86) - Rob Lazzurs
+
+- - -
+
 ## v0.3.0 - 2024-10-19
 #### Features
 - Automated releases. - (a2652e6) - Rob Lazzurs
