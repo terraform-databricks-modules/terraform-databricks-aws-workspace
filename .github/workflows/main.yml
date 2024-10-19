@@ -25,7 +25,7 @@ jobs:
         run: |
           echo NEXT_VERSION=`cog bump --auto --dry-run` >> "$GITHUB_ENV"
       - name: Cocogitto tag
-        id: tag
+        id: release
         uses: cocogitto/cocogitto-action@v3
         with:
           check-latest-tag-only: true
