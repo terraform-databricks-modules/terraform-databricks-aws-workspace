@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.3.2 - 2024-10-24
+#### Bug Fixes
+- **(dependabot)** bump databricks/databricks from 1.53.0 to 1.54.0 - (ab93031) - dependabot[bot]
+
+- - -
+
 ## v0.3.1 - 2024-10-19
 #### Bug Fixes
 - Fix GitHub workflow - (2310f86) - Rob Lazzurs
