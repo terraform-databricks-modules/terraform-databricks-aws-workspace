@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.3.11 - 2024-11-12
+#### Bug Fixes
+- **(dependabot)** bump hashicorp/aws from 5.74.0 to 5.75.0 - (b7beaa7) - dependabot[bot]
+
+- - -
+
 ## v0.3.10 - 2024-11-12
 #### Bug Fixes
 - **(dependabot)** bump terraform-aws-modules/s3-bucket/aws - (64d02be) - dependabot[bot]
