@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.3.10 - 2024-11-12
+#### Bug Fixes
+- **(dependabot)** bump terraform-aws-modules/s3-bucket/aws - (64d02be) - dependabot[bot]
+
+- - -
+
 ## v0.3.9 - 2024-11-05
 #### Bug Fixes
 - **(dependabot)** bump terraform-aws-modules/vpc/aws - (7886fc2) - dependabot[bot]
