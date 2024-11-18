@@ -12,7 +12,6 @@ locals {
 }
 
 # VPC
-
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "5.16.0"
@@ -32,8 +31,78 @@ module "vpc" {
   tags = var.tags
 }
 
-# VPC Endpoints
+module "network_firewall" {
+  source  = "terraform-aws-modules/network-firewall/aws"
+  version = "1.0.2"
 
+  # Firewall
+  name        = local.name
+  description = "Example network firewall"
+
+  # Only for example
+  delete_protection                 = false
+  firewall_policy_change_protection = false
+  subnet_change_protection          = false
+
+  vpc_id = module.vpc.vpc_id
+  subnet_mapping = { for i in range(0, local.num_azs) :
+    "subnet-${i}" => {
+      subnet_id       = element(module.vpc.public_subnets, i)
+      ip_address_type = "IPV4"
+    }
+  }
+
+  # Policy
+  policy_name        = local.name
+  policy_description = "Example network firewall policy"
+
+  policy_stateful_rule_group_reference = {
+    one = { resource_arn = module.network_firewall_rule_group_stateful.arn }
+  }
+
+  policy_stateless_default_actions          = ["aws:pass"]
+  policy_stateless_fragment_default_actions = ["aws:drop"]
+  policy_stateless_rule_group_reference = {
+    one = {
+      priority     = 1
+      resource_arn = module.network_firewall_rule_group_stateless.arn
+    }
+  }
+
+  tags = local.tags
+}
+
+# Network firewall rules
+module "network_firewall_rule_group_stateful" {
+  source  = "terraform-aws-modules/network-firewall/aws//modules/stateful-rule-group"
+  version = "1.0.2"
+
+  name        = "example-stateful"
+  description = "Stateful Inspection for denying access to a domain"
+  type        = "STATEFUL"
+  capacity    = 100
+
+  rule_group = {
+    rules_source = {
+      rules_source_list = {
+        generated_rules_type = "DENYLIST"
+        target_types         = ["HTTP_HOST"]
+        targets              = ["test.example.com"]
+      }
+    }
+  }
+
+  # Resource Policy
+  create_resource_policy     = true
+  attach_resource_policy     = true
+  resource_policy_principals = ["arn:aws:iam::1234567890:root"]
+
+  tags = {
+    Terraform   = "true"
+    Environment = "dev"
+  }
+}
+# VPC Endpoints
 module "vpc_endpoints" {
   source  = "terraform-aws-modules/vpc/aws//modules/vpc-endpoints"
   version = "5.16.0"
@@ -73,6 +142,7 @@ module "vpc_endpoints" {
   tags = var.tags
 }
 
+# Databricks network definition
 resource "databricks_mws_networks" "this" {
   account_id         = var.databricks_account_id
   network_name       = "${local.prefix}-network"
@@ -83,7 +153,6 @@ resource "databricks_mws_networks" "this" {
 }
 
 # S3 Bucket
-
 module "root_storage_bucket" {
   source  = "terraform-aws-modules/s3-bucket/aws"
   version = "4.2.2"
@@ -116,7 +185,6 @@ resource "databricks_mws_storage_configurations" "this" {
 }
 
 # IAM Role
-
 data "databricks_aws_crossaccount_policy" "this" {
   policy_type = "customer"
 }
@@ -161,6 +229,7 @@ resource "time_sleep" "wait_30_seconds_for_role" {
   create_duration = "30s"
 }
 
+# Databricks Credentials
 resource "databricks_mws_credentials" "this" {
   role_arn         = module.cross_account_role.iam_role_arn
   credentials_name = "${local.prefix}-creds"
@@ -169,7 +238,6 @@ resource "databricks_mws_credentials" "this" {
 
 
 # Databricks Workspace
-
 resource "databricks_mws_workspaces" "this" {
   account_id     = var.databricks_account_id
   aws_region     = var.aws_region
