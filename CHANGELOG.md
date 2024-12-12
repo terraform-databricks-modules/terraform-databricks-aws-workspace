@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.3.17 - 2024-12-12
+#### Bug Fixes
+- **(dependabot)** bump hashicorp/aws from 5.77.0 to 5.80.0 - (9b05bf0) - dependabot[bot]
+
+- - -
+
 ## v0.3.16 - 2024-12-01
 #### Bug Fixes
 - **(dependabot)** bump hashicorp/aws from 5.76.0 to 5.77.0 - (ff04b37) - dependabot[bot]
