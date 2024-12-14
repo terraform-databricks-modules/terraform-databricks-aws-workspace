@@ -28,3 +28,13 @@ variable "databricks_host" {
   type        = string
   default     = "https://accounts.cloud.databricks.com"
 }
+
+variable "denied_targets" {
+  description = "List of HTTP host targets to deny in network firewall"
+  type        = list(string)
+}
+
+variable "allowed_targets" {
+  description = "List of HTTP host targets to allow in network firewall"
+  type        = list(string)
+}

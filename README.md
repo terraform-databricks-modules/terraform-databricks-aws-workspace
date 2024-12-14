@@ -48,9 +48,11 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_allowed_targets"></a> [allowed\_targets](#input\_allowed\_targets) | List of HTTP host targets to allow in network firewall | `list(string)` | n/a | yes |
 | <a name="input_aws_region"></a> [aws\_region](#input\_aws\_region) | AWS region | `string` | n/a | yes |
 | <a name="input_databricks_account_id"></a> [databricks\_account\_id](#input\_databricks\_account\_id) | Account ID for Databricks | `string` | n/a | yes |
 | <a name="input_databricks_host"></a> [databricks\_host](#input\_databricks\_host) | Databricks host | `string` | `"https://accounts.cloud.databricks.com"` | no |
+| <a name="input_denied_targets"></a> [denied\_targets](#input\_denied\_targets) | List of HTTP host targets to deny in network firewall | `list(string)` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags to apply to all resources | `map(string)` | n/a | yes |
 | <a name="input_vpc_cidr"></a> [vpc\_cidr](#input\_vpc\_cidr) | CIDR block for the VPC | `string` | n/a | yes |
 | <a name="input_workspace_name"></a> [workspace\_name](#input\_workspace\_name) | Name of the Databricks workspace | `string` | n/a | yes |
