@@ -70,7 +70,7 @@ module "network_firewall" {
 
 # Network firewall rules
 module "network_firewall_rule_group_stateful" {
-  source  = "terraform-aws-modules/network-firewall/aws//modules/stateful-rule-group"
+  source  = "terraform-aws-modules/network-firewall/aws//modules/rule-group"
   version = "1.0.2"
 
   name        = "${local.prefix}-stateful"

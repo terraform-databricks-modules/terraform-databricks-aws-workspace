@@ -25,7 +25,7 @@
 | <a name="module_cross_account_role"></a> [cross\_account\_role](#module\_cross\_account\_role) | terraform-aws-modules/iam/aws//modules/iam-assumable-role | 5.48.0 |
 | <a name="module_crossaccount_policy"></a> [crossaccount\_policy](#module\_crossaccount\_policy) | terraform-aws-modules/iam/aws//modules/iam-policy | 5.48.0 |
 | <a name="module_network_firewall"></a> [network\_firewall](#module\_network\_firewall) | terraform-aws-modules/network-firewall/aws | 1.0.2 |
-| <a name="module_network_firewall_rule_group_stateful"></a> [network\_firewall\_rule\_group\_stateful](#module\_network\_firewall\_rule\_group\_stateful) | terraform-aws-modules/network-firewall/aws//modules/stateful-rule-group | 1.0.2 |
+| <a name="module_network_firewall_rule_group_stateful"></a> [network\_firewall\_rule\_group\_stateful](#module\_network\_firewall\_rule\_group\_stateful) | terraform-aws-modules/network-firewall/aws//modules/rule-group | 1.0.2 |
 | <a name="module_root_storage_bucket"></a> [root\_storage\_bucket](#module\_root\_storage\_bucket) | terraform-aws-modules/s3-bucket/aws | 4.2.2 |
 | <a name="module_vpc"></a> [vpc](#module\_vpc) | terraform-aws-modules/vpc/aws | 5.16.0 |
 | <a name="module_vpc_endpoints"></a> [vpc\_endpoints](#module\_vpc\_endpoints) | terraform-aws-modules/vpc/aws//modules/vpc-endpoints | 5.16.0 |
