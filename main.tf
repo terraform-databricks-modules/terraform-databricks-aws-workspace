@@ -27,8 +27,6 @@ module "vpc" {
   enable_nat_gateway   = true
   single_nat_gateway   = true
   create_igw           = true
-
-  tags = var.tags
 }
 
 module "network_firewall" {
