@@ -37,14 +37,14 @@ module "network_firewall" {
 
   # Firewall
   name        = local.name
-  description = "Example network firewall"
+  description = "Databricks Firewall for ${local.prefix}"
 
-  # Only for example
   delete_protection                 = false
   firewall_policy_change_protection = false
   subnet_change_protection          = false
 
   vpc_id = module.vpc.vpc_id
+
   subnet_mapping = { for i in range(0, local.num_azs) :
     "subnet-${i}" => {
       subnet_id       = element(module.vpc.public_subnets, i)
@@ -54,7 +54,7 @@ module "network_firewall" {
 
   # Policy
   policy_name        = local.name
-  policy_description = "Example network firewall policy"
+  policy_description = "Databricks Firewall for ${local.prefix}"
 
   policy_stateful_rule_group_reference = {
     one = { resource_arn = module.network_firewall_rule_group_stateful.arn }
@@ -68,8 +68,6 @@ module "network_firewall" {
       resource_arn = module.network_firewall_rule_group_stateless.arn
     }
   }
-
-  tags = local.tags
 }
 
 # Network firewall rules
@@ -77,8 +75,8 @@ module "network_firewall_rule_group_stateful" {
   source  = "terraform-aws-modules/network-firewall/aws//modules/stateful-rule-group"
   version = "1.0.2"
 
-  name        = "example-stateful"
-  description = "Stateful Inspection for denying access to a domain"
+  name        = "${local.prefix}-stateful"
+  description = "Databricks Firewall for ${local.prefix}"
   type        = "STATEFUL"
   capacity    = 100
 
@@ -87,7 +85,12 @@ module "network_firewall_rule_group_stateful" {
       rules_source_list = {
         generated_rules_type = "DENYLIST"
         target_types         = ["HTTP_HOST"]
-        targets              = ["test.example.com"]
+        targets              = var.denied_targets
+      }
+      rules_source_list = {
+        generated_rules_type = "ALLOWLIST"
+        target_types         = ["HTTP_HOST"]
+        targets              = var.allowed_targets
       }
     }
   }
@@ -96,12 +99,8 @@ module "network_firewall_rule_group_stateful" {
   create_resource_policy     = true
   attach_resource_policy     = true
   resource_policy_principals = ["arn:aws:iam::1234567890:root"]
-
-  tags = {
-    Terraform   = "true"
-    Environment = "dev"
-  }
 }
+
 # VPC Endpoints
 module "vpc_endpoints" {
   source  = "terraform-aws-modules/vpc/aws//modules/vpc-endpoints"
@@ -138,8 +137,6 @@ module "vpc_endpoints" {
       }
     },
   }
-
-  tags = var.tags
 }
 
 # Databricks network definition
