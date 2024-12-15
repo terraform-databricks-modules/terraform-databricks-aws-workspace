@@ -88,7 +88,7 @@ module "network_firewall_rule_group_stateful" {
   # Resource Policy
   create_resource_policy     = true
   attach_resource_policy     = true
-  resource_policy_principals = ["arn:aws:iam::1234567890:root"]
+  resource_policy_principals = ["arn:aws:iam::${data.aws_caller_identity.current.account_id}:root"]
 }
 
 # VPC Endpoints
