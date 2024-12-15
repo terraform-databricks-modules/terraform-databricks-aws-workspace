@@ -34,7 +34,7 @@ module "network_firewall" {
   version = "1.0.2"
 
   # Firewall
-  name        = local.name
+  name        = "${local.prefix}-firewall"
   description = "Databricks Firewall for ${local.prefix}"
 
   delete_protection                 = false
@@ -51,7 +51,7 @@ module "network_firewall" {
   }
 
   # Policy
-  policy_name        = local.name
+  policy_name        = "${local.prefix}-firewall"
   policy_description = "Databricks Firewall for ${local.prefix}"
 
   policy_stateful_rule_group_reference = {
