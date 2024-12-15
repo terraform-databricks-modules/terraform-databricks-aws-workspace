@@ -9,6 +9,7 @@ data "aws_caller_identity" "current" {}
 locals {
   workspace_name_prefix = replace(trimspace(substr(lower(var.workspace_name), 0, 10)), " ", "_")
   prefix                = "${data.aws_caller_identity.current.account_id}-${local.workspace_name_prefix}"
+  num_azs               = length(data.aws_availability_zones.available.names)
 }
 
 # VPC
