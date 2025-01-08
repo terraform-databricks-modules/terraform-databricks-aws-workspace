@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.3.20 - 2025-01-08
+#### Bug Fixes
+- **(dependabot)** bump terraform-aws-modules/iam/aws - (a22cfb4) - dependabot[bot]
+
+- - -
+
 ## v0.3.19 - 2024-12-14
 #### Bug Fixes
 - **(dependabot)** bump databricks/databricks from 1.59.0 to 1.60.0 - (94836a5) - dependabot[bot]
