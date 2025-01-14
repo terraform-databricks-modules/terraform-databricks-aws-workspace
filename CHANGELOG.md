@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.3.25 - 2025-01-14
+#### Bug Fixes
+- **(dependabot)** bump terraform-aws-modules/iam/aws - (f188afa) - dependabot[bot]
+
+- - -
+
 ## v0.3.24 - 2025-01-08
 #### Bug Fixes
 - **(dependabot)** bump terraform-aws-modules/s3-bucket/aws - (6040f69) - dependabot[bot]
