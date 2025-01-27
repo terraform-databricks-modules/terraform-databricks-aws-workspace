@@ -86,7 +86,7 @@ resource "databricks_mws_networks" "this" {
 
 module "root_storage_bucket" {
   source  = "terraform-aws-modules/s3-bucket/aws"
-  version = "4.3.0"
+  version = "4.5.0"
 
   bucket = "${local.prefix}-root-storage"
 
