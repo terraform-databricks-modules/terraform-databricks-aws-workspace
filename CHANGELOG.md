@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.3.32 - 2025-03-23
+#### Bug Fixes
+- **(dependabot)** bump terraform-aws-modules/vpc/aws - (7b32e9c) - dependabot[bot]
+
+- - -
+
 ## v0.3.31 - 2025-03-23
 #### Bug Fixes
 - **(dependabot)** bump hashicorp/aws from 5.83.1 to 5.91.0 - (01dc9eb) - dependabot[bot]
