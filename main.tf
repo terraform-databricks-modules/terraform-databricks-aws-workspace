@@ -123,7 +123,7 @@ data "databricks_aws_crossaccount_policy" "this" {
 
 module "crossaccount_policy" {
   source  = "terraform-aws-modules/iam/aws//modules/iam-policy"
-  version = "5.54.0"
+  version = "5.54.1"
 
   name        = "${local.prefix}-cross-account-policy"
   description = "Databricks Cross Account Policy for ${var.workspace_name}"
@@ -133,7 +133,7 @@ module "crossaccount_policy" {
 
 module "cross_account_role" {
   source  = "terraform-aws-modules/iam/aws//modules/iam-assumable-role"
-  version = "5.54.0"
+  version = "5.54.1"
 
   create_role = true
 
