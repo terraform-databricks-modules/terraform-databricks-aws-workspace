@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.3.35 - 2025-04-17
+#### Bug Fixes
+- **(dependabot)** bump databricks/databricks from 1.70.0 to 1.72.0 - (fefc5c5) - dependabot[bot]
+
+- - -
+
 ## v0.3.34 - 2025-03-25
 #### Bug Fixes
 - **(dependabot)** bump hashicorp/time from 0.12.1 to 0.13.0 - (b2bb2c9) - dependabot[bot]
