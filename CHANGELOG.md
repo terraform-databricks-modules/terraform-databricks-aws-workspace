@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.3.36 - 2025-04-17
+#### Bug Fixes
+- **(dependabot)** bump terraform-aws-modules/s3-bucket/aws - (664343d) - dependabot[bot]
+
+- - -
+
 ## v0.3.35 - 2025-04-17
 #### Bug Fixes
 - **(dependabot)** bump databricks/databricks from 1.70.0 to 1.72.0 - (fefc5c5) - dependabot[bot]
